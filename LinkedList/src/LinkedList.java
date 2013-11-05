@@ -47,7 +47,7 @@ public class LinkedList<T> implements List<T> {
 		return getNodeAt(position).getElem();
 	}
 	
-	private Node<T> getNodeAt(int position) {
+	public Node<T> getNodeAt(int position) {
 		Node<T> curr = head;
 		
 		for (int i = 1; i < position; i++) {

@@ -26,7 +26,6 @@ public class Node<T> {
 	}
 	
 	public void display() {
-		System.out.println(element + " ");
-		
+		System.out.print(element + " ");	
 	}
 }
