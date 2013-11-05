@@ -25,8 +25,5 @@ public class Node<T> {
 		next = newNode;
 	}
 	
-	public void display() {
-		System.out.println(element + " ");
-		
-	}
+	
 }
