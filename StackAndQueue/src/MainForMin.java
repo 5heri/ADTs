@@ -5,7 +5,7 @@
 public class MainForMin {
 
 	public static void main(String[] args) {
-		Stack stack = new Stack();
+		Stack stack = new Stack(10);
 		stack.push(7);
 		stack.push(2);
 		stack.push(-2);

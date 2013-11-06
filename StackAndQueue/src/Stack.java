@@ -3,6 +3,20 @@ public class Stack<T> {
 	
 	private Node<T> top;
 	private T min;
+	private int size;
+	private int capacity;
+	
+	public Stack(int capacity) {
+		this.capacity = capacity;
+	}
+	
+	public boolean isFull() {
+		return size == capacity;
+	}
+	
+	public boolean isEmpty() {
+		return size == 0;
+	}
 	
 	public T pop() {
 		if (top == null) {
@@ -10,6 +24,7 @@ public class Stack<T> {
 		} else {
 			T item = top.getElem();
 			top = top.getNext();
+			size--;
 			return item;
 		}
 	}
@@ -22,7 +37,8 @@ public class Stack<T> {
 		}
 		Node<T> newNode = new Node<T>(item); 
 		newNode.setNext(top);
-		top = newNode;	
+		top = newNode;
+		size++;
 	}
 	
 	public T peek() {
