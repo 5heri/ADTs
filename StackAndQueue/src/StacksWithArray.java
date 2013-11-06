@@ -4,15 +4,15 @@
  */
 public class StacksWithArray {
 	
-	private static final int firstStack = 1;
-	private static final int secondStack = 2;
-	private static final int thirdStack = 3;
-	private static final int limitForFirst = 99;
-	private static final int limitForSecond = 199;
-	private static final int limitForThird = 299;
-	private static final int leastForFirst = 0;
-	private static final int leastForSecond = 100;
-	private static final int leastForThird = 200;
+	private static final int FIRST_STACK = 1;
+	private static final int SECOND_STACK = 2;
+	private static final int THIRD_STACK = 3;
+	private static final int LIM_FOR_FIRST = 99;
+	private static final int LIM_FOR_SECOND = 199;
+	private static final int LIM_FOR_THIRD = 299;
+	private static final int LEAST_FOR_FIRST = 0;
+	private static final int LEAST_FOR_SECOND = 100;
+	private static final int LEAST_FOR_THIRD = 200;
 	
 	private int sizeOfArray = 300;
 	private int[] stackArray = new int[sizeOfArray];
@@ -21,22 +21,22 @@ public class StacksWithArray {
 	private int pointToThird = 199;
 	
 	public void push(int stackNumber, int value) throws Exception {
-		if (stackNumber == firstStack) {
-			if (pointToFirst > limitForFirst) {
+		if (stackNumber == FIRST_STACK) {
+			if (pointToFirst > LIM_FOR_FIRST) {
 				throw new Exception("First stack is full");
 			} else {
 				stackArray[pointToFirst + 1] = value;
 				pointToFirst++;				
 			}
-		} else if (stackNumber == secondStack) {
-			if (pointToSecond > limitForSecond) {
+		} else if (stackNumber == SECOND_STACK) {
+			if (pointToSecond > LIM_FOR_SECOND) {
 				throw new Exception("Second stack is full.");
 			} else {
 				stackArray[pointToSecond + 1] = value;
 				pointToSecond++;				
 			}
-		} else if (stackNumber == thirdStack) {
-			if (pointToThird > limitForThird) {
+		} else if (stackNumber == THIRD_STACK) {
+			if (pointToThird > LIM_FOR_THIRD) {
 				throw new Exception("Third stack is full.");
 			} else {
 				stackArray[pointToThird + 1] = value;
@@ -50,24 +50,24 @@ public class StacksWithArray {
 	public int pop(int stackNumber) throws Exception {
 		int item = 0;
 		
-		if (stackNumber == firstStack) {
-			if (pointToFirst < leastForFirst) {
+		if (stackNumber == FIRST_STACK) {
+			if (pointToFirst < LEAST_FOR_FIRST) {
 				throw new Exception("First stack is empty");
 			} else {
 				item = stackArray[pointToFirst];
 				pointToFirst--;
 			}
 
-		} else if (stackNumber == secondStack) {
-			if (pointToSecond < leastForSecond) {
+		} else if (stackNumber == SECOND_STACK) {
+			if (pointToSecond < LEAST_FOR_SECOND) {
 				throw new Exception("Second stack is empty");
 			} else {
 				item = stackArray[pointToSecond];
 				pointToSecond--;
 			}
 
-		} else if (stackNumber == thirdStack) {
-			if (pointToThird < leastForThird) {
+		} else if (stackNumber == THIRD_STACK) {
+			if (pointToThird < LEAST_FOR_THIRD) {
 				throw new Exception("Third stack is empty");
 			} else {
 				item = stackArray[pointToThird];
@@ -81,11 +81,11 @@ public class StacksWithArray {
 	}
 	
 	public int peek(int stackNumber) throws Exception {
-		if (stackNumber == firstStack) {
+		if (stackNumber == FIRST_STACK) {
 			return stackArray[pointToFirst];
-		} else if (stackNumber == secondStack) {
+		} else if (stackNumber == SECOND_STACK) {
 			return stackArray[pointToSecond];
-		} else if (stackNumber == thirdStack) {
+		} else if (stackNumber == THIRD_STACK) {
 			return stackArray[pointToThird];
 		} else {
 			throw new Exception("Incorrect stack number");
