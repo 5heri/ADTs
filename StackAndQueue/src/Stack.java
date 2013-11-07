@@ -10,6 +10,10 @@ public class Stack<T> {
 		this.capacity = capacity;
 	}
 	
+	public int size() {
+		return size;
+	}
+	
 	public boolean isFull() {
 		return size == capacity;
 	}
