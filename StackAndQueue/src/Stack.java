@@ -8,6 +8,7 @@ public class Stack<T> {
 	
 	public Stack(int capacity) {
 		this.capacity = capacity;
+		size = 0;
 	}
 	
 	public int size() {
