@@ -7,6 +7,10 @@ public class BinaryTree<T extends Comparable<T>> {
 		return root == null;
 	}
 	
+	public Node<T> getRoot() {
+		return root;
+	}
+	
 	public T getRootElem() {
 		return root.getElem();
 	}

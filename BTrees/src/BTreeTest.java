@@ -3,7 +3,6 @@ public class BTreeTest {
 
 	public static void main(String[] args) {
 
-		Node<Integer> root = new Node<Integer>(0);
 		BinaryTree<Integer> bt = new BinaryTree<Integer>();
 
 		bt.insert(4);
@@ -13,13 +12,38 @@ public class BTreeTest {
 		bt.insert(2);
 		bt.insert(1);
 		bt.insert(7);
-	
-		bt.preOrderDisplay();
+		Node<Integer> root = bt.getRoot();
+
+		System.out.println(getHeight(root));
+		System.out.println(isBalanced(root));
+		/*bt.preOrderDisplay();
 		System.out.println();
 		bt.inOrderDisplay();
 		System.out.println();
-		bt.postOrderDisplay();
+		bt.postOrderDisplay();*/
+		
 		
 	}
-
+	
+	private static int getHeight(Node<Integer> node) {
+		if (node == null) {
+			return -1;
+		} else {
+		return Math.max(getHeight(node.getLeft()), getHeight(node.getRight())) + 1;
+	
+		}
+	}
+	
+	private static boolean isBalanced(Node<Integer> node) {
+		if (node == null) {
+			return true;
+		} else {
+			int heightDiff = getHeight(node.getLeft()) - getHeight(node.getRight());
+			if (Math.abs(heightDiff) > 1) {
+				return false;
+			} else {
+				return isBalanced(node.getLeft()) && isBalanced(node.getRight());
+			}
+		}
+	}
 }
