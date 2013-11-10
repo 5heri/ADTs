@@ -56,6 +56,8 @@ public class BTreeTest {
 		root.getRight().getLeft().setRight(new Node<Integer>(1));
 		root.getLeft().getLeft().getLeft().setLeft(new Node<Integer>(6));
 		findPath(root, 10);
+		System.out.println("----------------------");
+		findPath(root, 4);
 		
 		System.exit(0);		
 	}
@@ -84,13 +86,16 @@ public class BTreeTest {
 			findPath(node.getLeft(), sum, currentSum, path);
 			findPath(node.getRight(), sum, currentSum, path);
 		}
-		findPath(node.getLeft(), sum);
-		findPath(node.getRight(), sum);
 	}
 	
 	private static void findPath(Node<Integer> node, int sum) {
+		if (node == null) {
+			return;
+		}
 		ArrayList<Node<Integer>> path = new ArrayList<Node<Integer>>();
 		findPath(node, sum, 0, path);
+		findPath(node.getLeft(), sum);
+		findPath(node.getRight(), sum);
 	}
 	
 	
