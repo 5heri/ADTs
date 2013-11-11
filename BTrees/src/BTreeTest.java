@@ -35,6 +35,14 @@ public class BTreeTest {
 		} else {
 			System.out.println("The common Ancester is: " + comAns.getElem());			
 		}
+		/* Current Tree
+		 *         3
+		 *       /   \
+		 *      1     5
+		 *     / \   / \
+		 *    0   2 4   6
+		 * 
+		 */
 		
 		//System.out.println(contains(root, new Node<Integer>(11)));
 		//System.out.println(isValidBST(root));
@@ -51,10 +59,21 @@ public class BTreeTest {
 		
 		/*
 		 * For testing we add to the tree
+		 * 
+		 *             3
+		 *           /   \
+		 *          1     5
+		 *         / \   / \
+		 *        0   2 4   6
+		 *       /     /
+		 *      0     1
+		 *     /
+		 *    6
 		 */
 		root.getLeft().getLeft().setLeft(new Node<Integer>(0));
 		root.getRight().getLeft().setRight(new Node<Integer>(1));
 		root.getLeft().getLeft().getLeft().setLeft(new Node<Integer>(6));
+		
 		findPath(root, 10);
 		System.out.println("----------------------");
 		findPath(root, 4);
@@ -73,7 +92,7 @@ public class BTreeTest {
 		currentSum += node.getElem();
 		path.add(node);
 		if (currentSum == sum) {
-			System.out.print("Path to sum: ");
+			System.out.print("Path to sum(" + sum + "): ");
 			for (int i = 0; i < path.size() - 1; i++) {
 				System.out.print(path.get(i).getElem() + "->");
 				
